@@ -1,0 +1,28 @@
+# Large external dataset
+data/imdb/IMDB Dataset.csv
+
+# Keep the empty directory in Git
+!data/imdb/.gitkeep
+
+# Generated outputs
+outputs/*
+!outputs/.gitkeep
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Local environments
+.venv/
+venv/
+env/
+
+# Model artifacts
+*.pt
+*.pth
+*.bin
+*.safetensors
+distilbert_imdb_ft/

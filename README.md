@@ -23,6 +23,10 @@ Although each workflow is independent, together they provide a broad overview of
 
 ---
 
+<img width="1536" height="1024" alt="Pipeline Architecture" src="https://github.com/user-attachments/assets/4b12a461-b698-436c-99a3-37094fab0f46" />
+
+---
+
 # Machine Learning Workflows
 
 ## 1. Transformer-Based Natural Language Processing

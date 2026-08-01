@@ -1,6 +1,6 @@
 # Five Applied Machine Learning Techniques Implemented in Python
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange)
 ![Transformers](https://img.shields.io/badge/HuggingFace-Transformers-yellow)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -9,7 +9,7 @@
 
 This project demonstrates the implementation of five modern machine learning workflows using real-world datasets and widely adopted Python libraries. Each workflow highlights a different area of applied machine learning, ranging from transformer-based natural language processing to explainable artificial intelligence.
 
-The objective of the project is to demonstrate the complete machine learning lifecycle:
+The objective of this project is to demonstrate the complete machine learning lifecycle, including:
 
 - Data preprocessing
 - Feature engineering
@@ -23,12 +23,13 @@ Although each workflow is independent, together they provide a broad overview of
 
 ---
 
-## Machine Learning Workflows
+# Machine Learning Workflows
 
-### 1. Transformer-Based Natural Language Processing
+## 1. Transformer-Based Natural Language Processing
 
 - Fine-tuned DistilBERT using the Hugging Face Transformers library
 - Sentiment classification on the IMDB Movie Reviews dataset
+- GPU acceleration when CUDA is available
 - Performance evaluated using:
   - Accuracy
   - Precision
@@ -37,7 +38,7 @@ Although each workflow is independent, together they provide a broad overview of
 
 ---
 
-### 2. Evolutionary Hyperparameter Optimization
+## 2. Evolutionary Hyperparameter Optimization
 
 Applied evolutionary optimization techniques to improve machine learning model performance using the Wine Quality dataset.
 
@@ -50,7 +51,7 @@ Topics include:
 
 ---
 
-### 3. Decision Tree Classification
+## 3. Decision Tree Classification
 
 Implemented and optimized a Decision Tree classifier using the Titanic Survival dataset.
 
@@ -63,20 +64,22 @@ Included:
 
 ---
 
-### 4. Hybrid Ensemble Learning
+## 4. Hybrid Ensemble Learning
 
 Developed multiple specialized machine learning models for web page classification using the Evergreen Classification dataset.
 
 Techniques include:
 
 - TF-IDF
+- Random Forest
+- Support Vector Machines
 - Ensemble learning
 - Majority voting
 - Specialized feature models
 
 ---
 
-### 5. Explainable Artificial Intelligence
+## 5. Explainable Artificial Intelligence
 
 Built a heart disease prediction model and interpreted predictions using Local Interpretable Model-Agnostic Explanations (LIME).
 
@@ -89,9 +92,15 @@ This workflow demonstrates how modern machine learning models can be made more t
 ```
 Five-Applied-Machine-Learning-Techniques-Implemented-in-Python/
 
+├── data/
+│   ├── imdb/
+│   ├── wine_quality/
+│   ├── titanic/
+│   ├── evergreen/
+│   └── heart_disease/
+│
 ├── images/
 ├── notebooks/
-├── data/
 ├── outputs/
 ├── README.md
 ├── requirements.txt
@@ -103,32 +112,31 @@ Five-Applied-Machine-Learning-Techniques-Implemented-in-Python/
 
 # Technologies Used
 
-Programming
+### Programming
 
 - Python
 
-Machine Learning
+### Machine Learning
 
 - scikit-learn
 - Hugging Face Transformers
 - LIME
 
-Data Processing
+### Data Processing
 
 - pandas
 - NumPy
 - SciPy
 
-Visualization
+### Visualization
 
 - matplotlib
-- seaborn
 
-Optimization
+### Optimization
 
 - Evolution Strategies
 
-Development Environment
+### Development Environment
 
 - Jupyter Notebook
 
@@ -146,9 +154,9 @@ cd Five-Applied-Machine-Learning-Techniques-Implemented-in-Python
 
 ---
 
-## 2. Create a virtual environment (recommended)
+## 2. (Recommended) Create a virtual environment
 
-Windows
+### Windows
 
 ```bash
 python -m venv .venv
@@ -156,7 +164,7 @@ python -m venv .venv
 .venv\Scripts\activate
 ```
 
-Linux / macOS
+### Linux / macOS
 
 ```bash
 python3 -m venv .venv
@@ -174,66 +182,103 @@ pip install -r requirements.txt
 
 ---
 
-## 4. Download datasets
+## 4. Download the IMDB dataset
 
-The IMDB Movie Reviews dataset is not included in this repository due to file size.
+The IMDB Movie Reviews dataset is not included in this repository due to licensing and file size.
 
 Download:
 
-IMDB Dataset of 50K Movie Reviews
+**IMDB Dataset of 50K Movie Reviews**
 
-Place the downloaded file here:
+Place the downloaded file in:
 
 ```
 data/imdb/IMDB Dataset.csv
 ```
 
-All remaining datasets are already included.
+All remaining datasets required by the notebook are included in the repository.
 
 ---
 
-## 5. Launch Jupyter
+## 5. (Optional) Enable GPU Acceleration
+
+The notebook automatically uses an NVIDIA GPU if CUDA-enabled PyTorch is installed.
+
+Verify GPU availability:
+
+```python
+import torch
+
+print(torch.cuda.is_available())
+
+if torch.cuda.is_available():
+    print(torch.cuda.get_device_name(0))
+```
+
+If `torch.cuda.is_available()` returns `False`, the notebook will automatically execute using the CPU.
+
+GPU acceleration is recommended for the transformer-based NLP workflow and significantly reduces execution time.
+
+---
+
+## 6. Launch Jupyter
 
 ```bash
 jupyter notebook
 ```
 
-Open
+Open:
 
 ```
-notebooks/applied_machine_learning_workflows.ipynb
+notebooks/Five Applied Machine Learning Techniques Implemented in Python.ipynb
 ```
 
 Run the notebook sequentially from top to bottom.
+
+The notebook automatically detects the cloned repository location and loads datasets from the repository's `data/` directory. No manual path configuration is required.
+
+---
+
+# Expected Runtime
+
+Approximate execution time on modern hardware:
+
+| Hardware | Approximate Runtime |
+|-----------|--------------------:|
+| NVIDIA GPU | 15–30 minutes |
+| Modern CPU | 30–60 minutes |
+
+Most of the runtime comes from the transformer-based natural language processing workflow.
 
 ---
 
 # Results
 
-The notebook generates:
+Running the notebook produces:
 
 - Performance metrics
 - Confusion matrices
 - Decision tree visualizations
 - LIME explanations
-- BERT predictions
+- BERT sentiment predictions
 - Ensemble learning comparisons
+- Evolution Strategy convergence plots
 
-Representative figures are provided in the **images/** directory.
+Generated artifacts are written to the `outputs/` directory.
+
+Representative figures are included in the `images/` directory.
 
 ---
 
 # Images
 
-The repository includes representative visualizations generated during model training and evaluation.
+Example visualizations include:
 
-Examples include:
-
-- Architecture Diagram
+- Pipeline Architecture
 - Confusion Matrix
 - Decision Tree Visualization
 - LIME Explanation
-- BERT Prediction Example
+- DistilBERT Prediction Example
 - Evolution Strategy Convergence Plot
 
 ---
@@ -242,7 +287,7 @@ Examples include:
 
 ## IMDB dataset not found
 
-Verify that
+Verify that:
 
 ```
 data/imdb/IMDB Dataset.csv
@@ -252,21 +297,27 @@ exists.
 
 ---
 
-## CUDA warnings
+## CUDA unavailable
 
-The notebook automatically falls back to CPU execution if CUDA is unavailable.
+The notebook automatically falls back to CPU execution when CUDA is unavailable.
+
+To verify GPU detection:
+
+```python
+import torch
+
+print(torch.cuda.is_available())
+```
 
 ---
 
 ## ModuleNotFoundError
 
-Run
+Reinstall the project dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
-
-again.
 
 ---
 
@@ -286,17 +337,18 @@ Potential extensions include:
 - Transformer model comparison
 - Deep neural networks
 - MLflow experiment tracking
-- Docker deployment
+- Docker containerization
 
 ---
 
 # Author
 
-William Ashman
+**William Ashman**
 
 Operations Research & Systems Analyst
 
-Johns Hopkins University — M.S. Data Science
+Johns Hopkins University  
+M.S. Data Science
 
 ---
 

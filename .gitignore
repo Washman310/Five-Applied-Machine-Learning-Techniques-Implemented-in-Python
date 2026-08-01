@@ -8,6 +8,10 @@ data/imdb/IMDB Dataset.csv
 outputs/*
 !outputs/.gitkeep
 
+# _OLD file
+_OLD/*
+
+
 # Jupyter temporary files
 .ipynb_checkpoints/
 
